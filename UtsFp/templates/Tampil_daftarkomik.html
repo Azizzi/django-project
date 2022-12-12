@@ -1,0 +1,20 @@
+{% extends 'Base.html' %}
+{% load static %}
+{% block konten %}
+<h1 class="align-center ">Daftarkomik </h1>
+<table border="5">
+    <tr>
+        <th>Kode Komik</th>
+        <th>Nama Komik</th>
+        <th>Penerbit</th>
+    </tr>
+
+{% for Daftarkomik in daftarkomiks %}
+    <tr>
+        <td>{{ Daftarkomik.kodekomik}}</td>
+        <td>{{ Daftarkomik.namakomik}}</td>
+        <td>{{ Daftarkomik.penerbit}}</td>
+    </tr>   
+{% endfor %}
+</table>
+{% endblock %}
