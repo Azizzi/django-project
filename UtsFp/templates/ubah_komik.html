@@ -1,0 +1,23 @@
+{% extends 'Base.html' %}
+{% load static %}
+{% block konten %}
+<main class="flex-shrink-1">
+    <div class="container">
+      <h1 class="mt-0">Sace</h1>
+    </div>
+    <section id="form">
+      {% for message in messages %}
+            {% if message %}
+                <div class="alert alert-success">{{ message }}</div>
+            {% endif %}
+        {%endfor%}
+        <h5>Ubah : {{ komiks.kodekomik }}</h5>
+        <form action="{% url 'ubah_komik' komiks.id %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary"> Simpan</button>
+            <a href="/tabelkomik" class="btn btn-danger"> kembali</a>
+        </form> 
+    </section>
+  </main>
+  {% endblock %}

@@ -1,6 +1,7 @@
 from django.db import models
 
 # Create your models here.
+
 class Jenis(models.Model):
     nama=models.CharField(max_length=50)
     ket=models.TextField()
@@ -14,7 +15,7 @@ class komik(models.Model):
     penerbit = models.CharField(max_length=50)
     stockkomik = models.IntegerField()
     hargakomik = models.BigIntegerField()
-    jenis_id=models.ForeignKey(Jenis, on_delete=models.CASCADE,null=True)
+    jenis_id = models.ForeignKey(Jenis, on_delete=models.CASCADE,null=True)
 
     def __str__(self):
         return self.namakomik
@@ -27,3 +28,4 @@ class daftarkomik(models.Model):
 
     def __str__(self):
         return "{}. {}".format(self.kodekomik,self.namakomik)
+

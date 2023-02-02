@@ -17,9 +17,8 @@ from django.contrib import admin
 from django.urls import path
 from django.http import HttpResponse
 from django.shortcuts import render
-from dashboard.views import Komik_View
-from dashboard.views import Daftarkomik_View
-
+#from dashboard.views import Komik_View, Daftarkomik_View, tambah_komik, tambah_daftarkomik
+from dashboard.views import *
 
 def Home(request):
     titlenya="Home"
@@ -75,4 +74,10 @@ urlpatterns = [
     path('Signin/',Signin),
     path('tabelkomik/',Komik_View),
     path('daftarkomik/',Daftarkomik_View),
+    path('tambahkomik/',tambah_komik),
+    path('tambahdaftarkomik/',tambah_daftarkomik),
+    path('ubahkomik/<int:id_komik>',ubah_Komik,name='ubah_komik'),
+    path('ubahdaftarkomik/<int:id_daftarkomik>',ubahdaftarkomik,name='ubahdaftarkomik'),
+    path('hapusdaftarkomik/<int:id_daftarkomik>',hapusdaftarbarang,name='hapusdaftarkomik'),
+    path('hapuskomik/<int:id_komik>',hapuskomik,name='hapuskomik'),
 ]
